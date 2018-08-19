@@ -1,29 +1,24 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app id="inspire">
+    <v-layout align-center justify-center>
+      <h1 class="display-3 font-weight-thin pt-4">TODO</h1>
+    </v-layout>
+    <v-container fluid fill-height>
+      <v-layout justify-center>
+        <v-flex xs12 sm8 md6>
+          <TodoList />
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<script>
+import TodoList from './components/TodoList.vue';
+
+export default {
+  components: { TodoList },
+  data: () => ({}),
+  props: {},
+};
+</script>
