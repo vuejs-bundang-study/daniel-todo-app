@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
     <v-layout align-center justify-center>
-      <h1 class="display-3 font-weight-thin pt-4">TODO</h1>
+      <h1 class="display-3 font-weight-thin pt-5 pb-4">TODO</h1>
     </v-layout>
     <v-container fluid fill-height>
       <v-layout justify-center>

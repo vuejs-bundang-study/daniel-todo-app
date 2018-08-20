@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "material-design-icons-iconfont": "^3.0.3",
+    "moment": "^2.22.2",
+    "shortid": "^2.2.13",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuetify": "^1.1.13",
