@@ -8,12 +8,23 @@
       required
     ></v-text-field>
     <v-card v-if="todoList.length > 0">
+      <v-tabs fixed-tabs  slider-color="indigo">
+        <v-tab @click="changeTab('ALL')">
+          ALL
+        </v-tab>
+        <v-tab @click="changeTab('TODO')">
+          TODO
+        </v-tab>
+        <v-tab @click="changeTab('DONE')">
+          DONE
+        </v-tab>
+      </v-tabs>
       <v-list
         subheader
         two-line
       >
         <Todo
-          v-for="(todo, index) in todoList"
+          v-for="(todo, index) in todos"
           :key="todo.id"
           :index="index"
           :todo="todo"
@@ -47,6 +58,7 @@
   export default {
     components: { Todo },
     data: () => ({
+      activatedTab: 'ALL',
       todoText: '',
       todoList: [],
       snackbarShow: false,
@@ -82,6 +94,26 @@
       showMessage(message) {
         this.snackbarMessage = message;
         this.snackbarShow = true;
+      },
+      changeTab(tab) {
+        this.activatedTab = tab;
+      },
+    },
+    computed: {
+      todos() {
+        switch (this.activatedTab) {
+        case 'ALL': {
+          return this.todoList;
+        }
+        case 'TODO': {
+          return this.todoList.filter(todo => !todo.done);
+        }
+        case 'DONE': {
+          return this.todoList.filter(todo => todo.done);
+        }
+        default:
+          return [];
+        }
       },
     },
     props: {},

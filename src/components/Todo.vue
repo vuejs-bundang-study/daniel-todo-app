@@ -2,8 +2,9 @@
   <v-list-tile @click="() => {}">
     <v-list-tile-action>
       <v-checkbox
-          v-model="todo.done"
-          ref="done"
+        color="indigo"
+        v-model="todo.done"
+        ref="done"
       ></v-checkbox>
     </v-list-tile-action>
 
