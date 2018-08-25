@@ -8,7 +8,7 @@
       required
     ></v-text-field>
     <v-card v-if="todoList.length > 0">
-      <v-tabs fixed-tabs  slider-color="indigo">
+      <v-tabs fixed-tabs slider-color="indigo">
         <v-tab @click="changeTab('ALL')">
           ALL
         </v-tab>
@@ -73,7 +73,8 @@
         const todo = {
           id: shortid.generate(),
           title: this.todoText,
-          created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
+          created_at: moment()
+            .format('YYYY-MM-DD HH:mm:ss'),
           done: false,
         };
         this.todoList.push(todo);
