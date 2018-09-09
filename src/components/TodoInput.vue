@@ -1,8 +1,9 @@
 <template>
   <v-text-field
-    v-model="todoText"
+    :value="todoText"
     label="무엇을 해야 합니까?"
-    @keyup.enter="submit()"
+    @keyup.enter="submit(todoText)"
+    @change="handleInputChange"
     solo
     required
   ></v-text-field>
@@ -11,19 +12,16 @@
 <script>
   export default {
     name: 'TodoInput',
-    data: () => ({
-      todoText: '',
-    }),
     methods: {
       submit() {
         this.handleSubmit(this.todoText);
-        this.todoText = '';
       },
     },
     props: {
+      todoText: String,
       handleSubmit: Function,
+      handleInputChange: Function,
     },
-    method: {},
   };
 </script>
 

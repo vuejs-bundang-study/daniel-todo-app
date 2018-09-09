@@ -7,7 +7,9 @@
       <v-layout justify-center>
         <v-flex xs12 sm8 md6>
           <TodoInput
+            :handle-input-change="handleInputChange"
             :handle-submit="handleSubmit"
+            :todo-text="todoText"
           />
           <TodoList
             :todo-list="todoList"
@@ -52,11 +54,15 @@
       snackbarMessage: '',
     }),
     methods: {
+      handleInputChange(value) {
+          this.todoText = value;
+      },
       handleSubmit(todoText) {
         if (!/.+/.test(todoText)) {
           this.showMessage('한 글자 이상 입력하세요');
           return;
         }
+        this.todoText = '';
         const todo = {
           id: shortid.generate(),
           title: todoText,
